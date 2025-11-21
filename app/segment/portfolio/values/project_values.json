@@ -20,28 +20,6 @@
         ],
         "isWebFirst": true
     },
-    {
-        "name": "HRdotnet-dayone",
-        "project_link": "http://hrdotnet-dayone.intellismartinc.com:5173/",
-        "project_logo": "images/system.png",
-        "description": ".Net + React + Typescript",
-        "long_description": "A recruitment system designed to automate the hiring process.",
-        "technology": [".Net8", "Crystal Reports", "MSSQL", "React", "Mantine", "TanStack Query", "Typescript","IIS"],
-        "platform": ["Web"],
-        "status": ["Completed"],
-        "type": "Full time project",
-        "role": ["Web and Mobile Developer"],
-        "source_code": [],
-        "images_path": "/images/dayone",
-        "images_num_web": 3,
-        "higlights": [
-            "Built and deployed the project from the ground up",
-            "Developed Scalable Codebase and Modular Architecture",
-            "Collaborated with the senior developer to ensure code quality and solutions aligned with development standards",
-            "Deployed the application on IIS, utilizing an in-house server to make it publicly accessible"
-        ],
-        "isWebFirst": true
-    },
      {
         "name": "POS System",
         "project_logo": "images/system.png",
@@ -107,6 +85,51 @@
             "Implemented Firebase Authentication for secure user login and registration",
             "Utilized SupaBase for efficient data storage and retrieval",
             "Integrated Google API for enhanced app functionality"
+        ],
+        "isWebFirst": true
+    },
+     {
+        "name": "Alumni System",
+        "project_link": "https://alumni-portal-rosy.vercel.app/",
+        "project_logo": "images/system.png",
+        "description": "SASS + NuxtJS + Tailwind",
+        "long_description": "An alumni system that allows graduates to connect, network, and engage with their alma mater through a web platform.",
+        "technology": ["SASS", "NuxtJS", "Tailwind", "Vercel"],
+        "platform": ["Web"],
+        "status": ["Active"],
+        "type": "Freelance",
+        "role": ["Full Stack Developer"],
+        "source_code": [],
+        "images_path": "/images/plmun",
+        "images_num_web": 7,
+        "higlights": [
+            "Allows alumni to see job opennings and apply through the web platform",
+            "In charge of developing the Landing page and Alumni Directory",
+            "Collaborated with co-developer to ensure code quality and solutions aligned with development standards",
+            "Developed dynamic Analytics functionality that adapts to end-user input for insights and trends",
+            "Utilized a backend deployed on Vercel"
+        ],
+        "isWebFirst": true
+    },
+     {
+        "name": "HRdotnet-dayone",
+        "project_link": "http://hrdotnet-dayone.intellismartinc.com:5173/",
+        "project_logo": "images/system.png",
+        "description": ".Net + React + Typescript",
+        "long_description": "A recruitment system designed to automate the hiring process.",
+        "technology": [".Net8", "Crystal Reports", "MSSQL", "React", "Mantine", "TanStack Query", "Typescript","IIS"],
+        "platform": ["Web"],
+        "status": ["Completed"],
+        "type": "Full time project",
+        "role": ["Web and Mobile Developer"],
+        "source_code": [],
+        "images_path": "/images/dayone",
+        "images_num_web": 3,
+        "higlights": [
+            "Built and deployed the project from the ground up",
+            "Developed Scalable Codebase and Modular Architecture",
+            "Collaborated with the senior developer to ensure code quality and solutions aligned with development standards",
+            "Deployed the application on IIS, utilizing an in-house server to make it publicly accessible"
         ],
         "isWebFirst": true
     },

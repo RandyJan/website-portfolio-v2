@@ -28,6 +28,9 @@ export function SiteHeader() {
             <Link href="#skills" className="cursor-pointer hover:text-blue-500 dark:hover:text-blue-400">
               Skills
             </Link>
+             <Link href="#certifications" className="cursor-pointer hover:text-blue-500 dark:hover:text-blue-400">
+              Certifications
+            </Link>
 
             <ThemeToggle />
           </nav>
