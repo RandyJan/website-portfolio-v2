@@ -24,7 +24,7 @@ const Hero = () => {
                             data-aos-delay="800"
                             data-aos-duration="500"
                         >
-                           I&apos;m a{" "}
+                            I&apos;m a{" "}
                             <span className="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
                                 Software Developer
                             </span>
@@ -74,8 +74,8 @@ const Hero = () => {
                         </a>
                     </div>
                 </div>
-              <div
-  className="
+                <div
+                    className="
     w-2/3 sm:w-1/5 
     p-[4px]                     /* padding to show gradient border */
     rounded-xl 
@@ -83,21 +83,21 @@ const Hero = () => {
     from-blue-500 
     to-purple-500
   "
->
-  <img 
-    data-aos="fade-left"
-    data-aos-delay="800"
-    data-aos-duration="500"
-    src="/images/randyjanrongcales.JPG"
-    className="
+                >
+                    <img
+                        data-aos="fade-left"
+                        data-aos-delay="800"
+                        data-aos-duration="500"
+                        src="/images/profile/randyjanrongcales.png"
+                        className="
       object-cover 
          rounded-2xl 
       w-full
       h-full
     "
-    alt="randyjanrongcales"
-  />
-</div>
+                        alt="randyjanrongcales"
+                    />
+                </div>
 
             </div>
         </div >
