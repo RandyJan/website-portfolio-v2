@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.enlarge {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+ 
+  &:hover {
+    transform: scale(1.3);
+    z-index: 50;
+  }
+}
+.enlarge_litle {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.danerisGraduatePic {
+  object-position: 50% 21%;
+  border-radius: 4%;
+}
+
+.img_slide_web {
+  margin: auto;
+  width: 90%;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.swiper1>.swiper-pagination {
+  /* width: 6.1rem !important; */
+}
+.swiper2>.swiper-pagination {
+  /* width: 5.5rem !important; */
+}
+
+.swiper-pagination {
+  padding: 0.3rem;
+  border-radius: 12px;
+  background-color: rgba(128, 128, 128, 0.3) !important;
+}
+
+/* mobile */
+@media (max-width: 1023px) {
+  .img_slide_mobile, .img_slide_web{
+    height: 10rem;
+    width: auto;
+    margin: auto;
+    object-fit: cover;
+  }
+  .imgSlide2 {
+    height: 10rem;
+    width: auto;
+    margin: auto;
+    object-fit: cover;
+  }
+}
+
+/* higer width than mobile */
+@media (min-width: 1024px) {
+  .img_slide_mobile, .img_slide_web{
+    height: 35rem;
+    width: auto;
+    margin: auto;
+    object-fit: cover;
+  }
+
+  .imgSlide2 {
+    height: 35rem;
+    width: auto;
+    margin: auto;
+    object-fit: cover;
+  }
+ 
+  .dynamic_description{
+    height: 45rem;
+    overflow: auto;
+  }
+
+  .project_description{
+    width: 42%;
+    height: 53rem;
+  }
+
+  .swiper2{
+    width: 56%;
+  }
+
+}
+
+.card-mini {
+  transition: all 0.2s ease-in-out;
+  max-height: 70px;
+  max-width: 70px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+
+  span {
+    font-size: 12px;
+  }
+
+  &:hover {
+    transform: scale(1.3);
+  }
+}

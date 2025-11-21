@@ -1,0 +1,172 @@
+{
+    "skills": {
+        "frontend": [
+            {
+                "name": "ReactJs",
+                "image": "/images/logo/react.png"
+            },
+            
+            {
+                "name": "NextJS",
+                "image": "/images/logo/nextjs.png"
+            },
+            {
+                "name": "Tailwind",
+                "image": "/images/logo/tailwind.png"
+            },
+            {
+                "name": "TypeScript",
+                "image": "/images/logo/ts.png"
+            },
+            {
+                "name": "Shadcn",
+                "image": "/images/logo/shadcn.png"
+            },
+            {
+                "name": "VueJs",
+                "image": "/images/logo/vue.png"
+            },
+            {
+                "name": "JavaScript",
+                "image": "/images/logo/javascript.png"
+            },
+            {
+                "name": "Bootstrap",
+                "image": "/images/logo/bootstrap.png"
+            },
+            {
+                "name": "HTML5",
+                "image": "/images/logo/html.png"
+            },
+            {
+                "name": "CSS",
+                "image": "/images/logo/css.png"
+            },
+            {
+                "name": "jQuery",
+                "image": "/images/logo/Jquery.png"
+            }
+            ,
+            {
+                "name": "Vite.JS",
+                "image": "/images/logo/Vite.js.png"
+            }
+        ],
+        "backend": [
+            {
+                "name": "Express JS",
+                "image": "/images/logo/express.png"
+            },
+            {
+                "name": "Node JS",
+                "image": "/images/logo/nodejs.png"
+            },
+            {
+                "name": "Mongo DB",
+                "image": "/images/logo/mongodb.png"
+            },
+            {
+                "name": "Laravel",
+                "image": "/images/logo/laravel.png"
+            },
+            {
+                "name": "PHP",
+                "image": "/images/logo/php.png"
+            },
+            {
+                "name": "Mysql",
+                "image": "/images/logo/mysql.png"
+            },
+            {
+                "name": "Postman",
+                "image": "/images/logo/postman.png"
+            }
+            ,
+            {
+                "name": "Firebase",
+                "image": "/images/logo/Firebase.png"
+            },
+            {
+                "name": "C#",
+                "image": "/images/logo/CSharp.png"
+            },
+            {
+                "name": "C++",
+                "image": "/images/logo/Cplusplus.png"
+            },
+            {
+                "name": "Sequelize",
+                "image": "/images/logo/Sequelize.png"
+            }
+        ],
+        "mobile": [
+            {
+                "name": "Android Studio",
+                "image": "/images/logo/androidstudio.png"
+            },
+            {
+                "name": "Flutter",
+                "image": "/images/logo/Flutter.png"
+            }
+            ,
+            {
+                "name": "Dart",
+                "image": "/images/logo/Dart.png"
+            }
+        ],
+        "others": [
+            {
+                "name": "Git",
+                "image": "/images/logo/git.png"
+            },
+            {
+                "name": "GitLab",
+                "image": "/images/logo/GitLab.png"
+            },
+            {
+                "name": "Docker",
+                "image": "/images/logo/docker.png"
+            },
+            {
+                "name": "Figma",
+                "image": "/images/logo/figma.png"
+            },
+            {
+                "name": "Vercel",
+                "image": "/images/logo/vercel.png"
+            },
+            {
+                "name": "cPanel",
+                "image": "/images/logo/cpanel.png"
+            },
+            {
+                "name": "AWS",
+                "image": "/images/logo/aws.png"
+            }
+            ,
+            {
+                "name": "Azure",
+                "image": "/images/logo/Azure.png"
+            },
+            {
+                "name": ".NET",
+                "image": "/images/logo/NET core.png"
+            }
+            ,
+            {
+                "name": "VSCode",
+                "image": "/images/logo/VSCode.png"
+            } ,
+            {
+                "name": "Visual Studio",
+                "image": "/images/logo/Visual Studio.png"
+            }
+             ,
+            {
+                "name": "Composer",
+                "image": "/images/logo/Composer.png"
+            }
+            
+        ]
+    }
+}
