@@ -1,0 +1,22 @@
+{
+    "Certifications": 
+        [
+            {
+                "name": "Microfrontend ReactJS",
+                "image": "/images/certificates/microfrontend-reactjs.png"
+            },
+             {
+                "name": "NodeJS Express and MongoDB",
+                "image": "/images/certificates/nodejs.png"
+            },
+            {
+                "name": "Anti Money Laundering (AML) Training",
+                "image": "/images/certificates/AMLA.png"
+            },
+            {
+                "name": "Effective Communication in the Workplace",
+                "image": "/images/certificates/Effective.png"
+            }
+        ]
+    
+}
