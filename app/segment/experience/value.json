@@ -10,7 +10,8 @@
       "Utilized React JS, React Native, Typescript, MySQL and Crystal Reports.",
       "Utilized Git for project collaboration and version control.",
       "Collaborated with QA and PMs in Agile sprints, ensuring feature quality through daily meetings."
-    ]
+    ],
+    "image": "/images/exp/DSWD.png"
   },
   {
     "icon": "🛠️",
@@ -24,7 +25,8 @@
       "Documented API specifications and usage guidelines, facilitating easier onboarding for new team members and external developers.",
       "Designed ERDs and optimized databases for performance and scalability.",
       "Expertise in multiple programming languages and frameworks including PHP, Typescript, Java, and framework such as React, Next, Vue, Nuxt, Laravel, NodeJS."
-    ]
+    ],
+    "image": "/images/exp/PETNET.png"
   },
   {
     "icon": "🛠️",
@@ -36,6 +38,7 @@
       "Developed and maintained order taking system for restaurants to improve order accuracy and efficiency.",
       "Developed RESTful Api's to different frontend applications.",
       "Collaborated with other developers using Git, actively following the guidance of our seniors and the manager."
-    ]
+    ],
+    "image": "/images/exp/DSC.png"
   }
 ]
