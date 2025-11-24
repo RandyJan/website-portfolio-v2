@@ -9,7 +9,7 @@ import ProjectValues from "./values/project_values.json";
 export default function Porfolio() {
   return (
     <div className="h-[100%] w-full flex flex-col justify-center pb-28" id="portfolio">
-      <div className="sm:bg-gray-100 sm:dark:bg-background md:p-6 overflow-hidden">
+      <div className="sm:light:bg-background md:p-6 overflow-hidden">
         <div className="sm:container">
 
           {/* Responsive Header */}

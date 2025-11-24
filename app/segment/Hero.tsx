@@ -6,9 +6,9 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const Hero = () => {
   return (
-    <div className="relative container flex flex-col sm:pl-28 pt-10 sm:pt-40 h-full overflow-hidden" id="home">
+    <div className="relative container flex flex-col sm:pl-28 pt-10 sm:pt-40 h-full max-w-full overflow-hidden" id="home">
       {/* Floating Background Shapes */}
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+      <div className="absolute -top-20 -left-20 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
       <div className="absolute -bottom-20 -right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
 
       <div className="flex flex-col-reverse sm:flex-row items-center justify-around w-full overflow-x-hidden">
@@ -41,7 +41,7 @@ const Hero = () => {
               data-aos-delay="1000"
               data-aos-duration="500"
             >
-              “Committed to delivering quality solutions and focusing on everyday growth”
+              “Code is a conversation between the developer and the future.”
             </h5>
           </div>
 
