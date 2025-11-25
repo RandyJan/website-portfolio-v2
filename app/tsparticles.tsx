@@ -51,9 +51,9 @@ const { is_dark } = GlobalStore();
         },
       },
       particles: {
-        color: { value: is_dark ? '#ffffff' : '#000'},
+        color: { value: is_dark ? '#ffffff' : '#330793ff'},
         links: {
-          color: is_dark ? '#ffffff' : '#000',
+          color: is_dark ? '#ffffff' : '#940984ff',
           distance: 150,
           enable: true,
           opacity: 0.5,
