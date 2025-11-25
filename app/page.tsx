@@ -11,10 +11,11 @@ import Experience from "@/app/segment/experience/page";
 import Skills from "@/app/segment/skills/page";
 import Footer from "@/app/segment/footer/page";
 import Certifications from "./segment/certifications/page";
-
+import { BgParticles } from "./tsparticles";
 export default function IndexPage() {
   const { theme } = useTheme(); // Get the current theme from next-themes
   const {set_is_dark} = GlobalStore();
+  const {is_dark} = GlobalStore();
   // Log theme changes to the console
   useEffect(() => {
     if(theme === "dark"){
@@ -33,6 +34,7 @@ export default function IndexPage() {
 
   return (
     <div className="h-full w-full">
+      <BgParticles key={is_dark.toString()}/>
       <Hero />
       <Porfolio />
       <Experience />
