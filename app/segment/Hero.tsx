@@ -12,7 +12,7 @@ const Hero = () => {
     <div className="relative container flex flex-col sm:pl-28 pt-10 sm:pt-40 h-full max-w-full overflow-hidden" id="home">
       <div className="absolute -top-20 -left-20 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
       {/* Floating Background Shapes */}
-      <BgParticles key={is_dark}  />
+      <BgParticles key={is_dark.toString()}  />
       <div className="absolute -bottom-20 -right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
 
       <div className="flex flex-col-reverse sm:flex-row items-center justify-around w-full overflow-x-hidden">
