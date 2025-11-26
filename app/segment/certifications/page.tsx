@@ -10,7 +10,7 @@ export default function Certifications() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <div className="lg:h-[90%] container pb-10" id="certifications">
+    <div className=" container pb-10" id="certifications">
       {/* Header */}
       <div
         className="flex flex-col md:flex-row items-center justify-center 
