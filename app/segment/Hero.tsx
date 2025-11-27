@@ -71,7 +71,7 @@ const Hero = () => {
               <FontAwesomeIcon icon={faGithub} size="2xl" className="text-gray-700 dark:text-white" />
             </a>
             <a
-              href="https://www.linkedin.com"
+              href="https://www.linkedin.com/in/randy-jan-rongcales-47b23935b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank"
               rel="noreferrer"
               className="transform transition-transform hover:scale-110"
