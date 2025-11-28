@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faEllipsis, faLink } from "@fortawesome/free-solid-svg-icons";
+import { faEllipsis, faLink, faEye } from "@fortawesome/free-solid-svg-icons";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -77,7 +77,24 @@ export default function Carousel() {
                       <FontAwesomeIcon icon={faGithub} size="2xl" className="text-blue-500 grow enlarge" onClick={() => { set_multiple_links(project.source_code); set_multiple_link_dialog(true); }} />
                     </>
                   )}
-                  <FontAwesomeIcon onClick={() => { set_selected_project(project); set_project_dialog(true); set_selected_project_index(index) }} className='enlarge pl-2 pr-2 ' style={{ color: is_dark ? '#ffffff' : '#000000', border: is_dark ? '1px solid #ffffff' : '1px solid #000000', borderRadius: '12%' }} icon={faEllipsis} size="2xl" />
+
+                  <button
+                    onClick={() => {
+                      set_selected_project(project);
+                      set_project_dialog(true);
+                      set_selected_project_index(index);
+                    }}
+                    className={`
+    flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium 
+    transition-all duration-300 enlarge 
+    ${is_dark
+                        ? "text-white border border-white hover:bg-white/10"
+                        : "text-black border border-black hover:bg-black/10"}
+  `}
+                  >
+                    <FontAwesomeIcon icon={faEye} />
+                    <span>View</span>
+                  </button>
                   {project.project_link && (
                     <a href={project.project_link} target="_blank" className="text-blue-500 grow enlarge" rel="noopener noreferrer">
                       <FontAwesomeIcon icon={faLink} size="2xl" />
