@@ -34,7 +34,7 @@ export default function IndexPage() {
 
   return (
     <div className="h-full w-full">
-      <BgParticles key={is_dark.toString()}/>
+      {/* <BgParticles key={is_dark.toString()}/> */}
       <Hero />
       <Porfolio />
       <Experience />

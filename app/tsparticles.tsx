@@ -46,36 +46,36 @@ const { is_dark } = GlobalStore();
           onHover: { enable: true, mode: "repulse" },
         },
         modes: {
-          push: { quantity: 4 },
-          repulse: { distance: 200, duration: 0.4 },
+          push: { quantity: 6 },
+          repulse: { distance: 250, duration: 0.6 },
         },
       },
       particles: {
-        color: { value: is_dark ? '#ffffff' : '#330793ff'},
+        color: { value: is_dark ? '#8b5cf6' : '#7c3aedff'},
         links: {
-          color: is_dark ? '#ffffff' : '#940984ff',
-          distance: 150,
+          color: is_dark ? '#a78bfa' : '#c4b5fdff',
+          distance: 180,
           enable: true,
-          opacity: 0.5,
-          width: 1,
+          opacity: 0.4,
+          width: 1.5,
         },
         move: {
           direction: MoveDirection.none,
           enable: true,
           outModes: { default: OutMode.out },
-          speed: 6,
+          speed: 3,
         },
         number: {
           density: { enable: true },
-          value: 80,
+          value: 120,
         },
-        opacity: { value: 0.5 },
+        opacity: { value: 0.6, animation: { enable: true, speed: 0.5, minimumValue: 0.2 } },
         shape: { type: "circle" },
-        size: { value: { min: 1, max: 5 } },
+        size: { value: { min: 2, max: 8 }, animation: { enable: true, speed: 1, minimumValue: 1 } },
       },
       detectRetina: true,
     }),
-    []
+    [is_dark]
   );
 
   if (!init) return null;
