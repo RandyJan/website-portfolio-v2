@@ -1,5 +1,5 @@
 {
-    "Certifications": 
+    "Certifications":
         [
             {
                 "name": "Microfrontend ReactJS",
@@ -19,7 +19,13 @@
             }, {
                 "name": "Core Values Workshop",
                 "image": "/images/certificates/core.png"
+            }, {
+                "name": "Complete Website Ethical Hacking and Penetration Testing",
+                "image": "/images/certificates/ethical.jpg"
+            }, {
+                "name": "Scrum Master Certification 2026 + Agile Scrum Certification",
+                "image": "/images/certificates/scrum.jpg"
             }
         ]
-    
+
 }
