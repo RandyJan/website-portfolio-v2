@@ -26,6 +26,10 @@
                 "name": "Scrum Master Certification 2026 + Agile Scrum Certification",
                 "image": "/images/certificates/scrum.jpg"
             }
+            , {
+                "name": "CSS, Bootstrap And JavaScript And Python Stack Course",
+                "image": "/images/certificates/cssbootstrap.jpg"
+            }
         ]
 
 }

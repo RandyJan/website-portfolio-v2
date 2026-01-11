@@ -42,7 +42,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="h-screen w-screen ">
+            <div className="h-screen w-90  ">
               <SiteHeader />
               {children}
             </div>
