@@ -29,6 +29,13 @@
             , {
                 "name": "CSS, Bootstrap And JavaScript And Python Stack Course",
                 "image": "/images/certificates/cssbootstrap.jpg"
+            } , {
+                "name": "Learn Git & GitHub for Beginners Practical Workflow (2026)",
+                "image": "/images/certificates/git.jpg"
+            }
+            , {
+                "name": "Docker | Crash course for developers",
+                "image": "/images/certificates/docker.jpg"
             }
         ]
 
