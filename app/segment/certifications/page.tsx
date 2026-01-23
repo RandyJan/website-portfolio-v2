@@ -34,29 +34,30 @@ export default function Certifications() {
       </div>
 
       {/* Certificates Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:pt-8 sm:w-[100%] sm:m-auto">
-        {certificationData.Certifications.map((cert, index) => (
-          <Card
-            key={index}
-            className="h-full pb-3 sm:p-0 dark:bg-[#31363F] rounded-xl cursor-pointer"
-            data-aos="fade-up"
-            data-aos-delay={200 + index * 100}
-            data-aos-duration="600"
-            onClick={() => setSelectedImage(cert.image)}
-          >
-            <CardContent className="flex flex-col items-center">
-              <img
-                src={cert.image}
-                alt={cert.name}
-                className="w-32 h-32 sm:w-60 sm:h-60 object-cover rounded-xl mb-4 mt-4"
-              />
-              <h3 className="text-center text-lg font-semibold dark:text-white">
-                {cert.name}
-              </h3>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:pt-8 sm:w-full sm:m-auto">
+  {certificationData.Certifications.map((cert, index) => (
+    <Card
+      key={index}
+      className="h-full w-full p-0 dark:bg-[#31363F] rounded-xl overflow-hidden cursor-pointer"
+      data-aos="fade-up"
+      data-aos-delay={200 + index * 100}
+      data-aos-duration="600"
+      onClick={() => setSelectedImage(cert.image)}
+    >
+      <CardContent className="p-0">
+        <img
+          src={cert.image}
+          alt={cert.name}
+          className="w-full h-48 sm:h-60 object-cover"
+        />
+
+        <h3 className="p-4 text-center text-lg font-semibold dark:text-white">
+          {cert.name}
+        </h3>
+      </CardContent>
+    </Card>
+  ))}
+</div>
 
       {/* Image Modal */}
       {selectedImage && (
