@@ -37,9 +37,6 @@
                 "name": "Docker | Crash course for developers",
                 "image": "/images/certificates/docker.jpg"
             }, {
-                "name": "Docker Containers | Crash course for developers",
-                "image": "/images/certificates/docker2.jpg"
-            }, {
                 "name": "Build a Robust RESTful API with PHP 8, from Scratch",
                 "image": "/images/certificates/api.jpg"
             }
