@@ -40,6 +40,13 @@
                 "name": "Build a Robust RESTful API with PHP 8, from Scratch",
                 "image": "/images/certificates/api.jpg"
             }
+             , {
+                "name": "AWS Essentials: A Complete Beginner's Guide",
+                "image": "/images/certificates/aws.jpg"
+            }, {
+                "name": "TDD, CI/CD, Pair Programming & Other XP Practices for Devs",
+                "image": "/images/certificates/cicd.jpg"
+            }
         ]
 
 }
