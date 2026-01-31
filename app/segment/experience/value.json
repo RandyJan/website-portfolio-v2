@@ -24,7 +24,7 @@
       "Developed RESTful APIs to ensure scalability and efficient communication between services.",
       "Documented API specifications and usage guidelines, facilitating easier onboarding for new team members and external developers.",
       "Designed ERDs and optimized databases for performance and scalability.",
-      "Expertise in multiple programming languages and frameworks including PHP, Typescript, Java, and framework such as React, Next, Vue, Nuxt, Laravel, NodeJS."
+      "Expertise in multiple programming languages and frameworks including PHP, Typescript, JavaScript, and framework such as React, Next, Vue, Nuxt, Laravel, NodeJS."
     ],
     "image": "/images/exp/PETNET.png"
   },
@@ -33,11 +33,12 @@
     "title": "Datalogic Systems Corp - Fullstack Developer ",
     "date": "Apr 2023 - Feb 2025",
     "description": [
-      "Maintained and implemented updates in the existing Point of Sale System and optimized its performance",
-      "Developed a web-based Kitchen Display System for restaurants to streamline order management.",
+      "Maintained and implemented using .NET framework and C# language  for updates in the existing Point of Sale System and optimized its performance",
+      "Developed a web-based Kitchen Display System using Laravel and VueJS for restaurants to streamline order management.",
       "Developed and maintained order taking system for restaurants to improve order accuracy and efficiency.",
-      "Developed RESTful Api's to different frontend applications.",
-      "Collaborated with other developers using Git, actively following the guidance of our seniors and the manager."
+      "Developed RESTful Api's using Laravel and Code igniter for  different frontend applications.",
+      "Collaborated with other developers using Git, GitHub and Gitlab, actively following the guidance of our seniors and the manager.",
+      "Deployed Laravel and Code Igniter RESTful API's with Internet Information Services and Laragon server to production environments."
     ],
     "image": "/images/exp/DSC.png"
   }

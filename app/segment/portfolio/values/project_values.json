@@ -1,5 +1,29 @@
 [
     {
+        "name": "Website Portfolio V1",
+        "project_link": "https://my-website-portfolio-pied.vercel.app/",
+        "project_logo": "images/system.png",
+        "description": "ReactJS + SASS + JavaScript + Vite",
+        "long_description": "A modern and responsive portfolio website built with ReactJS, SASS, and JavaScript, using Vite for fast builds and optimized performance. It showcases my projects, technical skills, and experience with a clean, user-friendly interface.",
+        "technology": ["ReactJS", "SASS", "JavaScript", "Vite"],
+        "platform": ["Web"],
+        "status": ["Completed"],
+        "type": "Personal project",
+        "role": ["Web Developer"],
+        "source_code": [],
+        "images_path": "/images/portfoliov1",
+        "images_num_web": 4,
+        "higlights": [
+            "Implemented smooth and engaging UI animations to enhance user experience and visual flow.",
+            "Designed clean, modern interfaces with strong attention to layout, spacing, and visual hierarchy.",
+            "Built fully responsive components that adapt seamlessly across desktop, tablet, and mobile devices",
+            "Applied mobile-first design principles to ensure performance and usability on all screen sizes.",
+            "Optimized animations for performance to maintain fast load times and smooth interactions.",
+            "Used reusable and scalable design patterns for consistent UI across the application."
+        ],
+        "isWebFirst": true
+    },
+    {
         "name": "Ordering System",
         "project_link": "",
         "project_logo": "images/system.png",
@@ -75,7 +99,7 @@
         "type": "Freelance",
         "role": ["Full Stack Developer", "Project Lead"],
         "source_code": [
-       
+
         ],
         "images_path": "/images/antiscam",
         "images_num_web": 0,
@@ -168,7 +192,7 @@
         "type": "Case Study(PoC)",
         "role": ["Full Stack Developer"],
         "source_code": [
-          
+
         ],
         "images_path": "/images/et",
         "images_num_web": 4,
@@ -188,7 +212,7 @@
         ],
         "isWebFirst": true
     },
- 
+
     {
         "name": "E-Palengke",
         "project_link": "",
@@ -203,7 +227,7 @@
         "type": "Acad Thesis",
         "role": ["Full Stack Developer", "Project Lead"],
         "source_code": [
-           
+
         ],
         "images_path": "/images/e-palengke",
         "images_num_web": 19,
@@ -281,7 +305,7 @@
         "type": "Acad 3rd Year Case Study",
         "role": ["Full Stack Developer", "Project Lead"],
         "source_code": [
-           
+
         ],
         "images_path": "/images/weboms",
         "images_num_web": 24,
@@ -310,7 +334,7 @@
         "type": "Acad 2nd Year Case Study",
         "role": ["Full Stack Developer", "Project Lead"],
         "source_code": [
-       
+
         ],
         "images_path": "/images/cmt",
         "images_num_web": 0,

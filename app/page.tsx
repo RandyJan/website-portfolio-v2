@@ -2,7 +2,7 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { useTheme } from "next-themes"; 
+import { useTheme } from "next-themes";
 import {GlobalStore} from '@/app/GlobalStore'
 
 import Hero from "@/app/segment/Hero";
@@ -11,7 +11,7 @@ import Experience from "@/app/segment/experience/page";
 import Skills from "@/app/segment/skills/page";
 import Footer from "@/app/segment/footer/page";
 import Certifications from "./segment/certifications/page";
-import { BgParticles } from "./tsparticles";
+// import { BgParticles } from "./tsparticles";
 export default function IndexPage() {
   const { theme } = useTheme(); // Get the current theme from next-themes
   const {set_is_dark} = GlobalStore();
