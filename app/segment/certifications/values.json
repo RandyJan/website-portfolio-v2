@@ -1,6 +1,11 @@
 {
     "Certifications":
         [
+
+             {
+                "name": " Programming Quizbee 2nd Place 2021",
+                "image": "/images/certificates/quizbee.jpg"
+            },
             {
                 "name": "Microfrontend ReactJS",
                 "image": "/images/certificates/microfrontend-reactjs.png"
@@ -51,6 +56,7 @@
                 "name": " Professional Certificate in Agile and SCRUM",
                 "image": "/images/certificates/scrum2.jpg"
             }
+
         ]
 
 }
