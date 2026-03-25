@@ -1,44 +1,39 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
-import Carousel from "@/app/segment/portfolio/component/Carousel";
-import SrcDialog from "@/app/segment/portfolio/component/SrcDialog";
-import ProjectDialog from "@/app/segment/portfolio/component/ProjectDialog";
-import ProjectValues from "./values/project_values.json";
+"use client"
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCode } from "@fortawesome/free-solid-svg-icons"
+
+import { SectionIntro } from "@/components/section-intro"
+
+import Carousel from "@/app/segment/portfolio/component/Carousel"
+import ProjectDialog from "@/app/segment/portfolio/component/ProjectDialog"
+import SrcDialog from "@/app/segment/portfolio/component/SrcDialog"
+import { useProjectsContent } from "@/lib/content-store"
 
 export default function Porfolio() {
+  const { data: projects } = useProjectsContent()
+
   return (
-    <div className="h-[100%] w-full flex flex-col justify-center pb-28" id="portfolio">
-      <div className="sm:light:bg-background md:p-6 overflow-hidden">
-        <div className="sm:container">
-
-          {/* Responsive Header */}
-          <div
-            className="flex flex-col md:flex-row items-center justify-center 
-                       text-4xl md:text-5xl dark:text-white gap-3 md:gap-5"
-            data-aos="fade-up"
-            data-aos-delay="100"
-            data-aos-duration="800"
-          >
-            <div className="flex flex-row items-center gap-3">
+    <section id="portfolio" className="section-shell pt-6">
+      <div className="section-card px-6 py-10 sm:px-10 sm:py-12 lg:px-12">
+        <SectionIntro
+          eyebrow="Selected work"
+          title="Projects that reflect how I build."
+          description="A mix of web, mobile, and systems work focused on useful business outcomes, maintainable code, and smoother user flows."
+          aside={
+            <div className="inline-flex items-center gap-3 rounded-full border border-sky-200/70 bg-sky-50/80 px-4 py-3 text-sm font-semibold text-sky-800 dark:border-sky-400/20 dark:bg-slate-900/70 dark:text-sky-300">
               <FontAwesomeIcon icon={faCode} />
-              <p>Portfolio</p>
+              {projects.length} featured projects
             </div>
+          }
+        />
 
-            <p
-              className="text-2xl md:text-3xl font-semibold 
-                         bg-gradient-to-r from-blue-500 to-purple-500 
-                         bg-clip-text text-transparent"
-            >
-              {ProjectValues.length} Projects
-            </p>
-          </div>
-
+        <div className="mt-10">
           <Carousel />
           <SrcDialog />
           <ProjectDialog />
         </div>
       </div>
-    </div>
-  );
+    </section>
+  )
 }

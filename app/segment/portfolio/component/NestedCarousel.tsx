@@ -5,25 +5,16 @@ import { PortfolioStore } from "@/app/segment/portfolio/store"
 import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
-import "swiper/css/scrollbar"
 import { useEffect, useState } from "react"
 import { HashLoader } from "react-spinners"
-import {
-  A11y,
-  Keyboard,
-  Navigation,
-  Pagination,
-  Scrollbar,
-} from "swiper/modules"
+import { Keyboard, Navigation, Pagination } from "swiper/modules"
 
 import { DynamicSystemLogo } from "@/app/segment/portfolio/component/DynamicSystemLogo"
 import { ProjectType } from "@/app/segment/portfolio/type"
-import slidesData from "@/app/segment/portfolio/values/project_values.json"
+import { useProjectsContent } from "@/lib/content-store"
 
 export default function Index() {
   const {
-    project_dialog,
-    set_project_dialog,
     selected_project,
     set_selected_project,
     selected_project_index,
@@ -32,11 +23,9 @@ export default function Index() {
     set_is_loading,
     is_loading,
   } = PortfolioStore()
-  const [systemLogo, setSystemLogo] = useState(DynamicSystemLogo("#000000"))
-  const [swiper, setSwiper] = useState(null)
+  const [systemLogo] = useState(DynamicSystemLogo("#000000"))
   const [previewImage, setPreviewImage] = useState<string | null>(null)
-
-  const projects: ProjectType[] = slidesData
+  const { data: projects } = useProjectsContent()
   const getImageDimensions = async (blob: any) => {
     return new Promise((resolve, reject) => {
       const img = new Image()
@@ -48,8 +37,6 @@ export default function Index() {
     })
   }
 
-  const delay = (ms: number) =>
-    new Promise((resolve) => setTimeout(resolve, ms))
   const fetchImages = async (SelectedProject: ProjectType) => {
     try {
       set_is_loading(true) // Set loading state to true before starting the fetch operation
@@ -142,17 +129,10 @@ export default function Index() {
   }
 
   useEffect(() => {
-    console.log(is_loading)
-  }, [is_loading])
-
-  // useEffect(() => {
-  //     fetchImages();
-  // }, [selected_project]);
-
-  useEffect(() => {
-    console.log(selected_project_index)
-    fetchImages(projects[selected_project_index])
-  }, [selected_project_index])
+    if (projects[selected_project_index]) {
+      fetchImages(projects[selected_project_index])
+    }
+  }, [projects, selected_project_index])
 
   return (
     <>

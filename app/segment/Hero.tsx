@@ -1,131 +1,178 @@
-"use client";
-import { Button } from "@/components/ui/button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-// import { BgParticles } from "../tsparticles";
-import { GlobalStore } from "../GlobalStore";
-const Hero = () => {
+"use client"
 
-  const {is_dark} = GlobalStore();
+import Image from "next/image"
+import Link from "next/link"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons"
+import {
+  faArrowDown,
+  faArrowRight,
+  faEnvelope,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons"
+
+import { Button } from "@/components/ui/button"
+
+const quickStats = [
+  { label: "Years building", value: "3+" },
+  { label: "Projects shipped", value: "15+" },
+  { label: "Core focus", value: "Full stack" },
+]
+
+export default function Hero() {
   return (
-    <div className="relative container flex flex-col sm:pl-28 pt-10 sm:pt-40 h-full max-w-full overflow-hidden" id="home">
-      {/* <BgParticles key={is_dark.toString()}  /> */}
-      <div className="absolute -top-20 -left-20 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-      {/* Floating Background Shapes */}
-      <div className="absolute -bottom-20 -right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+    <section id="home" className="section-shell pt-10 sm:pt-14 lg:pt-20">
+      <div className="section-card relative overflow-hidden px-6 py-10 sm:px-10 sm:py-14 lg:px-14 lg:py-16">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-52 bg-[radial-gradient(circle_at_top_left,_rgba(14,165,233,0.24),_transparent_42%),radial-gradient(circle_at_top_right,_rgba(251,146,60,0.18),_transparent_32%)]" />
+        <div className="grid items-center gap-10 lg:grid-cols-[1.25fr_0.9fr] lg:gap-12">
+          <div className="relative z-10 space-y-8">
+            <div className="section-kicker" data-aos="fade-right">
+              Available for full-stack and frontend work
+            </div>
 
-      <div className="flex flex-col-reverse sm:flex-row items-center justify-around w-full overflow-x-hidden">
-        {/* Text Section */}
-        <div className="flex flex-col justify-between sm:w-2/3 sm:p-1 text-center sm:text-start items-center sm:items-start z-10 relative">
-          <div className="flex flex-col gap-2">
-            <h1
-              className="font-extrabold text-3xl sm:text-6xl text-black dark:text-white tracking-tight"
-              data-aos="fade-right"
-              data-aos-delay="800"
-              data-aos-duration="500"
-            >
-              Randy Jan P. Rongcales Jr.
-            </h1>
-            <h2
-              className="text-xl text-gray-500 lg:text-4xl dark:text-white"
-              data-aos="fade-right"
-              data-aos-delay="900"
-              data-aos-duration="500"
-            >
-              I&apos;m a{" "}
-              <span className="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent animate-gradient-x">
-                Software Developer
-              </span>
-            </h2>
+            <div className="space-y-5">
+              <p
+                className="text-sm font-semibold uppercase tracking-[0.28em] text-sky-700 dark:text-sky-300"
+                data-aos="fade-right"
+                data-aos-delay="60"
+              >
+                Randy Jan P. Rongcales Jr.
+              </p>
+              <h1
+                className="max-w-4xl text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-7xl dark:text-white"
+                data-aos="fade-right"
+                data-aos-delay="120"
+              >
+                Building practical products with clean code and clear UX.
+              </h1>
+              <p
+                className="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg dark:text-slate-300"
+                data-aos="fade-right"
+                data-aos-delay="180"
+              >
+                Software developer focused on full-stack delivery, maintainable
+                architecture, and interfaces that feel thoughtful from first
+                click to final flow.
+              </p>
+            </div>
 
-            <h5
-              className="text-base text-gray-500 lg:text-2xl sm:max-w-[80%] dark:text-white mt-4"
+            <div
+              className="flex flex-col gap-3 sm:flex-row"
               data-aos="fade-right"
-              data-aos-delay="1000"
-              data-aos-duration="500"
+              data-aos-delay="240"
             >
-              “Code is a conversation between the developer and the future.”
-            </h5>
-          </div>
-
-          {/* Action Buttons & Socials */}
-          <div
-            className="mt-6 flex flex-row items-center gap-4 dark:text-white"
-            data-aos="fade-right"
-            data-aos-delay="1100"
-            data-aos-duration="500"
-          >
-            <a href="mailto:rongcales14@gmail.com" className="transform transition-transform hover:scale-105">
-              <Button className="flex gap-2 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:from-purple-500 hover:to-blue-500">
-                Contact Me
-                <FontAwesomeIcon icon={faEnvelope} />
+              <Button
+                asChild
+                size="lg"
+                className="rounded-full bg-slate-950 px-7 text-white shadow-lg shadow-slate-950/20 hover:bg-slate-800 dark:bg-sky-500 dark:text-slate-950 dark:hover:bg-sky-400"
+              >
+                <Link href="#portfolio">
+                  View Projects
+                  <FontAwesomeIcon icon={faArrowRight} />
+                </Link>
               </Button>
-            </a>
-            <a
-              href="https://github.com/RandyJan"
-              target="_blank"
-              rel="noreferrer"
-              className="transform transition-transform hover:scale-110"
-            >
-              <FontAwesomeIcon icon={faGithub} size="2xl" className="text-gray-700 dark:text-white" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/randy-jan-rongcales-47b23935b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-              target="_blank"
-              rel="noreferrer"
-              className="transform transition-transform hover:scale-110"
-            >
-              <FontAwesomeIcon icon={faLinkedin} size="2xl" className="text-blue-700 dark:text-blue-400" />
-            </a>
-          </div>
-        </div>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-full border-slate-300 bg-white/80 px-7 text-slate-900 hover:border-sky-300 hover:bg-sky-50 dark:border-white/15 dark:bg-slate-900/60 dark:text-white dark:hover:bg-slate-800"
+              >
+                <a href="mailto:rongcales14@gmail.com">
+                  Contact Me
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </a>
+              </Button>
+            </div>
 
-        {/* Profile Image */}
-        <div
-          className="
-            w-2/3 sm:w-1/5
-            p-[4px]
-            rounded-xl
-            bg-gradient-to-br from-blue-500 to-purple-500
-            transform transition-transform hover:scale-105 hover:rotate-3
-          "
-          data-aos="fade-left"
-          data-aos-delay="1200"
-          data-aos-duration="500"
-        >
-          <img
-            src="/images/profile/randyjanrongcales.png"
-            alt="randyjanrongcales"
-            className="object-cover rounded-2xl w-full h-full shadow-lg"
-          />
+            <div
+              className="flex flex-wrap items-center gap-3 text-sm text-slate-600 dark:text-slate-300"
+              data-aos="fade-right"
+              data-aos-delay="300"
+            >
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/75 px-4 py-2 shadow-sm dark:border-white/10 dark:bg-slate-900/65">
+                <FontAwesomeIcon icon={faLocationDot} className="text-sky-500" />
+                Based in the Philippines
+              </div>
+              <a
+                href="https://github.com/RandyJan"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/75 px-4 py-2 shadow-sm transition hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-700 dark:border-white/10 dark:bg-slate-900/65 dark:hover:border-sky-400/30 dark:hover:text-sky-300"
+              >
+                <FontAwesomeIcon icon={faGithub} />
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/randy-jan-rongcales-47b23935b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/75 px-4 py-2 shadow-sm transition hover:-translate-y-0.5 hover:border-sky-300 hover:text-sky-700 dark:border-white/10 dark:bg-slate-900/65 dark:hover:border-sky-400/30 dark:hover:text-sky-300"
+              >
+                <FontAwesomeIcon icon={faLinkedin} />
+                LinkedIn
+              </a>
+            </div>
+
+            <div
+              className="grid gap-3 sm:grid-cols-3"
+              data-aos="fade-up"
+              data-aos-delay="360"
+            >
+              {quickStats.map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-3xl border border-slate-200/80 bg-white/80 px-5 py-4 shadow-sm dark:border-white/10 dark:bg-slate-900/60"
+                >
+                  <p className="text-2xl font-bold text-slate-950 dark:text-white">
+                    {item.value}
+                  </p>
+                  <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative z-10" data-aos="fade-left" data-aos-delay="200">
+            <div className="relative mx-auto max-w-md">
+              <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-sky-500/20 via-transparent to-orange-400/25 blur-2xl" />
+              <div className="section-card relative overflow-hidden rounded-[2rem] border border-white/60 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 p-4 text-white shadow-[0_30px_90px_rgba(15,23,42,0.28)] dark:border-white/10">
+                <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-r from-sky-500/35 to-orange-400/20 blur-2xl" />
+                <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 p-3">
+                  <Image
+                    src="/images/profile/randyjanrongcales.png"
+                    alt="Randy Jan Rongcales portrait"
+                    width={560}
+                    height={700}
+                    priority
+                    className="h-auto w-full rounded-[1.25rem] object-cover"
+                  />
+                </div>
+                <div className="relative mt-5 grid gap-3 sm:grid-cols-[1fr_auto] sm:items-end">
+                  <div>
+                    <p className="text-lg font-semibold">Software Developer</p>
+                    <p className="mt-1 text-sm leading-6 text-slate-300">
+                      Code is a conversation between the developer and the
+                      future.
+                    </p>
+                  </div>
+                  <Button
+                    asChild
+                    variant="secondary"
+                    className="rounded-full bg-white/10 text-white hover:bg-white/20"
+                  >
+                    <Link href="#experience">
+                      Journey
+                      <FontAwesomeIcon icon={faArrowDown} />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Tailwind Animation Styles */}
-      <style jsx>{`
-        @keyframes gradient-x {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 5s ease infinite;
-        }
-        @keyframes blob {
-          0%, 100% { transform: translate(0px, 0px) scale(1); }
-          33% { transform: translate(30px, -20px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-        .animate-blob {
-          animation: blob 8s infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-      `}</style>
-    </div>
-  );
-};
-
-export default Hero;
+    </section>
+  )
+}

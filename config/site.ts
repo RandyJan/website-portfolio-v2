@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig
 export const siteConfig = {
   name: "Randy Jan Rongcales",
   description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+    "Full-stack software developer portfolio featuring production projects, professional experience, and certifications.",
   mainNav: [
     // {
     //   title: "Home",

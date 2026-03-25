@@ -1,99 +1,84 @@
-import { Card } from "@/components/ui/card";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle, faBriefcase, faGraduationCap, faStar } from "@fortawesome/free-solid-svg-icons";
-import Image from "next/image";
+import Image from "next/image"
+import { Card } from "@/components/ui/card"
 
-const Timeline = ({ events }: any) => {
-  const getIcon = (eventType: string) => {
-    switch (eventType) {
-      case "work":
-        return faBriefcase;
-      case "education":
-        return faGraduationCap;
-      default:
-        return faStar;
-    }
-  };
+type TimelineEvent = {
+  icon: string
+  title: string
+  date: string
+  description: string | string[]
+  image?: string
+}
 
-return (
-  <div className="relative mx-auto pt-12 pb-40 overflow-x-hidden w-full">
-    {/* Soft Ambient Glow */}
-    {/* <div className="absolute inset-0 pointer-events-none opacity-30 blur-3xl bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 "></div> */}
+const Timeline = ({ events }: { events: TimelineEvent[] }) => {
+  return (
+    <div className="relative mt-12">
+      <div className="absolute bottom-0 left-5 top-0 hidden w-px bg-gradient-to-b from-sky-400/60 via-sky-500/30 to-orange-400/50 lg:block" />
 
-    {/* Gradient Timeline Line */}
-    <div className="absolute left-6 md:left-1/2 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-600 rounded-full shadow-[0_0_18px_rgba(99,102,241,0.6)] "></div>
-
-    {/* Timeline Events */}
-    <div className="space-y-20 md:space-y-28 ">
-      {events.map((event: any, index: number) => (
-        <div
-          key={index}
-          className="flex flex-col md:flex-row items-center justify-between md:space-x-10 relative"
-          data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
-          data-aos-delay={150 + index * 120}
-          data-aos-duration="700"
-        >
-          {/* Timeline Icon Node */}
-<div className="absolute left-0 md:left-[50%] top-14 transform md:-translate-x-1/2 z-20">
-            <div className="relative flex items-center justify-center w-11 h-11 md:w-14 md:h-14 
-                rounded-full bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg shadow-blue-500/40">
-              <FontAwesomeIcon
-                icon={faCircle}
-                className="text-white opacity-20 absolute text-3xl"
-              />
-              <span className="absolute text-white font-semibold text-xs md:text-sm">
-                {event.icon}
-              </span>
+      <div className="space-y-8 lg:space-y-10">
+        {events.map((event, index) => (
+          <div
+            key={event.title}
+            className="relative grid gap-5 lg:grid-cols-[auto_1fr]"
+            data-aos="fade-up"
+            data-aos-delay={120 + index * 80}
+          >
+            <div className="hidden lg:flex">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-orange-400 text-lg shadow-lg shadow-sky-500/25">
+                <span>{event.icon}</span>
+              </div>
             </div>
-          </div>
 
-          {/* Event Card */}
-          <div className="md:w-1/2 w-full mt-20 md:mt-0">
-            <Card className="p-6 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 
-                    bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-700
-                    hover:shadow-2xl hover:scale-[1.01] transition-all duration-500">
-              <h3 className="text-2xl font-bold mb-1 tracking-tight">
-                {event.title}
-              </h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
-                {event.date}
-              </p>
+            <Card className="overflow-hidden rounded-[1.75rem] border border-slate-200/80 bg-white/80 shadow-[0_18px_60px_rgba(15,23,42,0.07)] dark:border-white/10 dark:bg-slate-950/65">
+              <div className="grid gap-0 xl:grid-cols-[1.2fr_0.8fr]">
+                <div className="p-6 sm:p-8">
+                  <div className="mb-6 flex flex-wrap items-center gap-3">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-orange-400 text-lg shadow-lg shadow-sky-500/25 lg:hidden">
+                      <span>{event.icon}</span>
+                    </div>
+                    <div>
+                      <p className="text-lg font-semibold tracking-tight text-slate-950 sm:text-2xl dark:text-white">
+                        {event.title}
+                      </p>
+                      <p className="mt-1 text-sm font-medium text-sky-700 dark:text-sky-300">
+                        {event.date}
+                      </p>
+                    </div>
+                  </div>
 
-              {Array.isArray(event.description) ? (
-                <ul className="list-disc pl-5 text-sm space-y-1 text-gray-700 dark:text-gray-300">
-                  {event.description.map((bullet: string, idx: number) => (
-                    <li key={idx} className="leading-relaxed">
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                  {event.description}
-                </p>
-              )}
+                  {Array.isArray(event.description) ? (
+                    <ul className="space-y-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
+                      {event.description.map((bullet) => (
+                        <li key={bullet} className="flex gap-3">
+                          <span className="mt-2 h-2 w-2 rounded-full bg-gradient-to-r from-sky-500 to-orange-400" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-sm leading-7 text-slate-600 dark:text-slate-300">
+                      {event.description}
+                    </p>
+                  )}
+                </div>
+
+                {event.image ? (
+                  <div className="relative min-h-[220px] border-t border-slate-200/80 bg-slate-100 dark:border-white/10 dark:bg-slate-900 xl:min-h-full xl:border-l xl:border-t-0">
+                    <Image
+                      src={event.image}
+                      alt={event.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent" />
+                  </div>
+                ) : null}
+              </div>
             </Card>
           </div>
-
-          {/* Image */}
-          <div className="md:w-1/2 w-full flex justify-center md:justify-end mt-6 md:mt-0 pr-0 md:pr-10">
-            {event.image && (
-              <Image
-                src={event.image}
-                alt={event.title}
-                width={420}
-                height={260}
-                className="rounded-2xl shadow-xl object-cover w-full max-w-md 
-                        hover:scale-[1.02] transition duration-500"
-              />
-            )}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  </div>
-);
+  )
+}
 
-};
-
-export default Timeline;
+export default Timeline

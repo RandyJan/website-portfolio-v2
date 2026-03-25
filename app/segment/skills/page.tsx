@@ -1,79 +1,69 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faToolbox } from "@fortawesome/free-solid-svg-icons";
-import { Card, CardContent } from "@/components/ui/card";
-import skillsData from "@/app/segment/skills/value.json";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faToolbox } from "@fortawesome/free-solid-svg-icons"
+import { Card, CardContent } from "@/components/ui/card"
+
+import { SectionIntro } from "@/components/section-intro"
+
+import skillsData from "@/app/segment/skills/value.json"
 
 export default function Skills() {
   return (
-    <div className="lg:h-[90%] container pb-10" id="skills">
-      {/* Header */}
-      <div
-        className="flex flex-col md:flex-row items-center justify-center
-                   text-4xl md:text-5xl gap-3 md:gap-5 p-10"
-        data-aos="fade-up"
-        data-aos-delay="100"
-        data-aos-duration="800"
-      >
-        <div className="flex flex-row items-center gap-3 dark:text-white">
-          <FontAwesomeIcon icon={faToolbox} />
-          <p>Skills</p>
-        </div>
+    <section id="skills" className="section-shell pt-6">
+      <div className="section-card px-6 py-10 sm:px-10 sm:py-12 lg:px-12">
+        <SectionIntro
+          eyebrow="Toolset"
+          title="Flexible across frontend, backend, mobile, and delivery tools."
+          description="My stack is shaped by real project needs, with a strong bias toward maintainability, performance, and fast collaboration."
+          aside={
+            <div className="inline-flex items-center gap-3 rounded-full border border-sky-200/70 bg-sky-50/80 px-4 py-3 text-sm font-semibold text-sky-800 dark:border-sky-400/20 dark:bg-slate-900/70 dark:text-sky-300">
+              <FontAwesomeIcon icon={faToolbox} />
+              {Object.values(skillsData.skills).flat().length} technologies
+            </div>
+          }
+        />
 
-        <span
-          className="text-2xl md:text-3xl font-semibold
-                     bg-gradient-to-r from-blue-500 to-purple-500
-                     bg-clip-text text-transparent"
-        >
-          Flexible
-        </span>
-      </div>
+        <div className="section-grid mt-10 grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
+          {Object.entries(skillsData.skills).map(([category, skills], index) => (
+            <Card
+              key={category}
+              className="rounded-[1.75rem] border border-slate-200/80 bg-white/80 shadow-[0_18px_55px_rgba(15,23,42,0.07)] transition duration-500 hover:-translate-y-1.5 hover:border-sky-300 dark:border-white/10 dark:bg-slate-950/65 dark:hover:border-sky-400/20"
+              data-aos="fade-up"
+              data-aos-delay={140 + index * 70}
+            >
+              <CardContent className="p-6 sm:p-7">
+                <div className="mb-6 flex items-center justify-between gap-3">
+                  <h3 className="text-2xl font-semibold capitalize tracking-tight text-slate-950 dark:text-white">
+                    {category}
+                  </h3>
+                  <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:bg-slate-800 dark:text-slate-300">
+                    {skills.length}
+                  </span>
+                </div>
 
-      {/* Skills Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:pt-8 sm:w-[100%] sm:m-auto">
-        {Object.entries(skillsData.skills).map(([category, skills], index) => (
-          <Card
-            key={category}
-            className="h-full pb-3 sm:p-0 rounded-xl
-                       border border-transparent
-                       dark:bg-[#31363f] bg-white
-                       hover:border-blue-500/30
-                       hover:dark:border-blue-400/30
-                       transition-all duration-500 transform
-                       hover:-translate-y-2 hover:rotate-1 hover:scale-105
-                       shadow-md hover:shadow-xl"
-            data-aos="fade-down"
-            data-aos-delay={500 + index * 100}
-            data-aos-duration="600"
-          >
-            <CardContent>
-              {/* Category Title */}
-              <h2 className="text-2xl font-bold mb-6 text-center dark:text-white capitalize py-4">
-                {category}
-              </h2>
-
-              {/* Skills Icons */}
-              <div className="grid grid-cols-4 gap-x-6 sm:gap-x-3 gap-y-6">
-                {skills.map((skill, idx) => (
-                  <div key={idx} className="flex flex-col items-center group relative">
-                    <div className="relative flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                      <img
-                        src={skill.image}
-                        alt={skill.name}
-                        className="min-h-[2.7rem] sm:h-14 mx-auto rounded-xl bg-cover shadow-sm dark:shadow-gray-800 hover:shadow-lg dark:hover:shadow-gray-500"
-                      />
-                      {/* Tooltip */}
-                      <span className="absolute bottom-full mb-2 px-2 py-1 text-xs bg-black text-white dark:bg-gray-700 dark:text-white rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
+                <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
+                  {skills.map((skill) => (
+                    <div
+                      key={skill.name}
+                      className="group flex flex-col items-center gap-2 rounded-2xl border border-transparent bg-slate-50/80 px-3 py-4 text-center transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:bg-white dark:bg-slate-900/80 dark:hover:border-sky-400/20 dark:hover:bg-slate-900"
+                    >
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/70 dark:bg-slate-800 dark:ring-white/10">
+                        <img
+                          src={skill.image}
+                          alt={skill.name}
+                          className="max-h-9 w-auto object-contain transition duration-300 group-hover:scale-105"
+                        />
+                      </div>
+                      <span className="text-xs font-medium leading-5 text-slate-600 dark:text-slate-300">
                         {skill.name}
                       </span>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    </section>
+  )
 }
