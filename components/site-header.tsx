@@ -31,7 +31,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-white/30 bg-white/65 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/60">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="#home" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 via-cyan-400 to-orange-400 text-sm font-bold text-white shadow-lg shadow-sky-500/30">
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl border border-slate-200/80 bg-white/90 text-sm font-bold text-slate-700 shadow-sm dark:border-white/10 dark:bg-slate-900/80 dark:text-slate-200">
             RR
           </div>
           <div className="hidden sm:block">
@@ -104,7 +104,7 @@ function NavItem({ href, label, count, mobile, onClick }: NavItemProps) {
     >
       <span>{label}</span>
       {typeof count === "number" ? (
-        <span className="inline-flex min-w-[1.65rem] items-center justify-center rounded-full bg-gradient-to-r from-sky-500 to-orange-400 px-2 py-0.5 text-[0.7rem] font-semibold text-white">
+        <span className="inline-flex min-w-[1.65rem] items-center justify-center rounded-full border border-slate-200/80 bg-slate-100/90 px-2 py-0.5 text-[0.7rem] font-semibold text-slate-500 dark:border-white/10 dark:bg-slate-800/80 dark:text-slate-300">
           {count}
         </span>
       ) : null}
