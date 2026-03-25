@@ -58,8 +58,18 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 border-t border-slate-200/80 pt-5 text-sm text-slate-500 dark:border-white/10 dark:text-slate-400">
-          Built with Next.js, Tailwind CSS, and a stronger focus on clarity,
-          hierarchy, and flow.
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              Built with Next.js, Tailwind CSS, and a stronger focus on clarity,
+              hierarchy, and flow.
+            </p>
+            <Link
+              href="/admin"
+              className="text-xs font-medium uppercase tracking-[0.22em] text-slate-400 transition hover:text-sky-600 dark:text-slate-500 dark:hover:text-sky-300"
+            >
+              Admin
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

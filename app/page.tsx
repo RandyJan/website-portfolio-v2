@@ -7,6 +7,8 @@ import { GlobalStore } from "@/app/GlobalStore";
 
 import Hero from "@/app/segment/Hero";
 import CreativePlayground from "@/app/segment/CreativePlayground";
+import Methodology from "@/app/segment/Methodology";
+import AestheticInterlude from "@/app/segment/AestheticInterlude";
 import Porfolio from "@/app/segment/portfolio/page";
 import Experience from "@/app/segment/experience/page";
 import Skills from "@/app/segment/skills/page";
@@ -35,6 +37,8 @@ export default function IndexPage() {
       <CreativePlayground />
       <Porfolio />
       <Experience />
+      <Methodology />
+      <AestheticInterlude />
       <Skills />
       <Certifications />
       <Footer />

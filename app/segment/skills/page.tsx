@@ -22,7 +22,7 @@ export default function Skills() {
           }
         />
 
-        <div className="section-grid mt-10 grid-cols-1 lg:grid-cols-2 xl:grid-cols-4">
+        <div className="section-grid mt-10 grid-cols-1 xl:grid-cols-2">
           {Object.entries(skillsData.skills).map(([category, skills], index) => (
             <Card
               key={category}
@@ -30,8 +30,8 @@ export default function Skills() {
               data-aos="fade-up"
               data-aos-delay={140 + index * 70}
             >
-              <CardContent className="p-6 sm:p-7">
-                <div className="mb-6 flex items-center justify-between gap-3">
+              <CardContent className="p-6 sm:p-8">
+                <div className="mb-8 flex items-center justify-between gap-3">
                   <h3 className="text-2xl font-semibold capitalize tracking-tight text-slate-950 dark:text-white">
                     {category}
                   </h3>
@@ -40,20 +40,20 @@ export default function Skills() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 sm:grid-cols-4">
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:gap-5">
                   {skills.map((skill) => (
                     <div
                       key={skill.name}
-                      className="group flex flex-col items-center gap-2 rounded-2xl border border-transparent bg-slate-50/80 px-3 py-4 text-center transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:bg-white dark:bg-slate-900/80 dark:hover:border-sky-400/20 dark:hover:bg-slate-900"
+                      className="group flex flex-col items-center gap-3 rounded-[1.5rem] border border-slate-200/60 bg-white/85 px-4 py-5 text-center transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-md dark:border-white/10 dark:bg-slate-900/80 dark:hover:border-sky-400/20 dark:hover:bg-slate-900"
                     >
-                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-slate-200/70 dark:bg-slate-800 dark:ring-white/10">
+                      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 shadow-sm ring-1 ring-slate-200/70 dark:bg-slate-800 dark:ring-white/10">
                         <img
                           src={skill.image}
                           alt={skill.name}
-                          className="max-h-9 w-auto object-contain transition duration-300 group-hover:scale-105"
+                          className="max-h-10 w-auto object-contain transition duration-300 group-hover:scale-105"
                         />
                       </div>
-                      <span className="text-xs font-medium leading-5 text-slate-600 dark:text-slate-300">
+                      <span className="text-sm font-medium leading-6 text-slate-600 dark:text-slate-300">
                         {skill.name}
                       </span>
                     </div>

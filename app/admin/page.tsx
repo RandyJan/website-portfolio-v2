@@ -76,6 +76,8 @@ const emptyExperience: ExperienceItem = {
 const emptyCertification: CertificationItem = {
   name: "",
   image: "",
+  category: "technical",
+  kind: "certification",
 }
 
 const inputClassName =
@@ -382,7 +384,11 @@ export default function AdminPage() {
   }
 
   const upsertCertification = () => {
-    const nextItem: CertificationItem = { ...certificationForm }
+    const nextItem: CertificationItem = {
+      ...certificationForm,
+      category: certificationForm.category ?? "technical",
+      kind: certificationForm.kind ?? "certification",
+    }
     const nextItems = [...certificationItems]
     if (certificationItems[certificationIndex]) {
       nextItems[certificationIndex] = nextItem
@@ -628,6 +634,39 @@ export default function AdminPage() {
               <CardContent className="space-y-5 p-6">
                 <SectionLabel title={selectedCertificationLabel} description="Edit the selected certification and save to update the public certifications section." />
                 <Field label="Certification name"><input value={certificationForm.name} onChange={(event) => setCertificationForm((prev) => ({ ...prev, name: event.target.value }))} className={inputClassName} /></Field>
+                <div className="grid gap-4 md:grid-cols-2">
+                  <Field label="Category">
+                    <select
+                      value={certificationForm.category ?? "technical"}
+                      onChange={(event) =>
+                        setCertificationForm((prev) => ({
+                          ...prev,
+                          category: event.target.value as CertificationItem["category"],
+                        }))
+                      }
+                      className={inputClassName}
+                    >
+                      <option value="technical">Technical</option>
+                      <option value="delivery">Delivery</option>
+                      <option value="collaboration">Collaboration</option>
+                    </select>
+                  </Field>
+                  <Field label="Type">
+                    <select
+                      value={certificationForm.kind ?? "certification"}
+                      onChange={(event) =>
+                        setCertificationForm((prev) => ({
+                          ...prev,
+                          kind: event.target.value as CertificationItem["kind"],
+                        }))
+                      }
+                      className={inputClassName}
+                    >
+                      <option value="certification">Certification</option>
+                      <option value="achievement">Achievement</option>
+                    </select>
+                  </Field>
+                </div>
                 <Field label="Image path"><input value={certificationForm.image} onChange={(event) => setCertificationForm((prev) => ({ ...prev, image: event.target.value }))} className={inputClassName} /></Field>
                 <Field label="Upload image">
                   <div className="space-y-4">

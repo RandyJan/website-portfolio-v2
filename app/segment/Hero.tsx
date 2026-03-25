@@ -24,7 +24,7 @@ export default function Hero() {
     <section id="home" className="section-shell pt-10 sm:pt-14 lg:pt-20">
       <div className="section-card relative overflow-hidden px-6 py-10 sm:px-10 sm:py-14 lg:px-14 lg:py-16">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-52 bg-[radial-gradient(circle_at_top_left,_rgba(14,165,233,0.24),_transparent_42%),radial-gradient(circle_at_top_right,_rgba(251,146,60,0.18),_transparent_32%)]" />
-        <div className="grid items-center gap-10 lg:grid-cols-[1.25fr_0.9fr] lg:gap-12">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
           <div className="relative z-10 space-y-8">
             <div className="section-kicker" data-aos="fade-right">
               Available for full-stack and frontend work
@@ -134,17 +134,17 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="relative z-10" data-aos="fade-left" data-aos-delay="200">
-            <div className="relative mx-auto max-w-md">
+          <div className="relative z-10 lg:scale-110" data-aos="fade-left" data-aos-delay="200">
+            <div className="relative mx-auto max-w-xl">
               <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-sky-500/20 via-transparent to-orange-400/25 blur-2xl" />
               <div className="section-card relative overflow-hidden rounded-[2rem] border border-white/60 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 p-4 text-white shadow-[0_30px_90px_rgba(15,23,42,0.28)] dark:border-white/10">
                 <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-r from-sky-500/35 to-orange-400/20 blur-2xl" />
                 <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 p-3">
                   <Image
-                    src="/images/profile/randyjanrongcales.png"
+                    src="/images/profile/mypix.png"
                     alt="Randy Jan Rongcales portrait"
-                    width={560}
-                    height={700}
+                    width={720}
+                    height={900}
                     priority
                     className="h-auto w-full rounded-[1.25rem] object-cover"
                   />

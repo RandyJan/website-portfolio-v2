@@ -18,6 +18,8 @@ export type ExperienceItem = {
 export type CertificationItem = {
   name: string
   image: string
+  category?: "technical" | "delivery" | "collaboration"
+  kind?: "certification" | "achievement"
 }
 
 export const CONTENT_STORAGE_KEYS = {
