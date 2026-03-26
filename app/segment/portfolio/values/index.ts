@@ -15,6 +15,8 @@ export const ProjectVal: ProjectType = {
   images_path: "",
   images_num_web: 0,
   images_num_mobile: 0,
+  web_images: [],
+  mobile_images: [],
   demo_accounts: [],
   higlights: [],
   isWebFirst: false

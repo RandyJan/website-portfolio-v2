@@ -11,6 +11,7 @@ import Methodology from "@/app/segment/Methodology";
 import AestheticInterlude from "@/app/segment/AestheticInterlude";
 import Porfolio from "@/app/segment/portfolio/page";
 import Experience from "@/app/segment/experience/page";
+import CodePhilosophy from "@/app/segment/CodePhilosophy";
 import Skills from "@/app/segment/skills/page";
 import Footer from "@/app/segment/footer/page";
 import Certifications from "./segment/certifications/page";
@@ -35,8 +36,9 @@ export default function IndexPage() {
     <div className="w-full">
       <Hero />
       <CreativePlayground />
-      <Porfolio />
       <Experience />
+      <CodePhilosophy />
+      <Porfolio />
       <Methodology />
       <AestheticInterlude />
       <Skills />

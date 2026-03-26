@@ -36,6 +36,7 @@ import {
   useExperienceContent,
   useProjectsContent,
 } from "@/lib/content-store"
+import { getProjectImagePaths } from "@/lib/project-images"
 
 type AdminSection = "projects" | "experience" | "certifications"
 
@@ -60,6 +61,8 @@ const emptyProject: ProjectType = {
   images_path: "",
   images_num_web: 0,
   images_num_mobile: 0,
+  web_images: [],
+  mobile_images: [],
   demo_accounts: [],
   higlights: [],
   isWebFirst: true,
@@ -128,6 +131,10 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
       {children}
     </label>
   )
+}
+
+function getStoredImageCount(images: string[] | undefined, fallback: number | undefined) {
+  return images && images.length > 0 ? images.length : Number(fallback) || 0
 }
 
 function SectionLabel({ title, description }: { title: string; description: string }) {
@@ -273,6 +280,10 @@ export default function AdminPage() {
   const [projectSourceText, setProjectSourceText] = useState("")
   const [projectDemoText, setProjectDemoText] = useState("")
   const [message, setMessage] = useState("")
+  const [projectUploadState, setProjectUploadState] = useState<{
+    web: boolean
+    mobile: boolean
+  }>({ web: false, mobile: false })
   const [isUploadingCertificationImage, setIsUploadingCertificationImage] =
     useState(false)
 
@@ -351,8 +362,11 @@ export default function AdminPage() {
       higlights: textToLines(arrayToText(projectForm.higlights)),
       source_code: textToSourceCode(projectSourceText),
       demo_accounts: textToDemoAccounts(projectDemoText),
-      images_num_web: Number(projectForm.images_num_web) || 0,
-      images_num_mobile: Number(projectForm.images_num_mobile) || 0,
+      images_num_web: getStoredImageCount(projectForm.web_images, projectForm.images_num_web),
+      images_num_mobile: getStoredImageCount(
+        projectForm.mobile_images,
+        projectForm.images_num_mobile
+      ),
     }
     const nextItems = [...projectItems]
     if (projectItems[projectIndex]) {
@@ -399,6 +413,72 @@ export default function AdminPage() {
     setCertificationItems(nextItems)
     saveCertificationsContent(nextItems)
     showMessage("Certification saved.")
+  }
+
+  const handleProjectImageUpload = async (
+    bucket: "web" | "mobile",
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const files = Array.from(event.target.files ?? [])
+    if (files.length === 0) {
+      return
+    }
+
+    try {
+      setProjectUploadState((prev) => ({ ...prev, [bucket]: true }))
+
+      const formData = new FormData()
+      for (const file of files) {
+        formData.append("files", file)
+      }
+
+      const existingPaths = getProjectImagePaths(projectForm, bucket)
+      formData.append("bucket", bucket)
+      formData.append("projectName", projectForm.name || "project")
+      formData.append("imagesPath", projectForm.images_path || "")
+      formData.append("existingCount", String(existingPaths.length))
+
+      const response = await fetch("/api/admin/projects/upload", {
+        method: "POST",
+        body: formData,
+      })
+
+      if (!response.ok) {
+        throw new Error("Upload failed")
+      }
+
+      const result = (await response.json()) as {
+        imagesPath: string
+        bucket: "web" | "mobile"
+        paths: string[]
+      }
+
+      setProjectForm((prev) => {
+        const key = bucket === "web" ? "web_images" : "mobile_images"
+        const nextImages = [...getProjectImagePaths(prev, bucket), ...result.paths]
+
+        return {
+          ...prev,
+          images_path: result.imagesPath,
+          [key]: nextImages,
+          images_num_web:
+            bucket === "web"
+              ? nextImages.length
+              : getStoredImageCount(prev.web_images, prev.images_num_web),
+          images_num_mobile:
+            bucket === "mobile"
+              ? nextImages.length
+              : getStoredImageCount(prev.mobile_images, prev.images_num_mobile),
+        }
+      })
+
+      showMessage(`${files.length} ${bucket} image${files.length > 1 ? "s" : ""} uploaded. Save project to keep them.`)
+    } catch {
+      showMessage("Project image upload failed.")
+    } finally {
+      setProjectUploadState((prev) => ({ ...prev, [bucket]: false }))
+      event.target.value = ""
+    }
   }
 
   const handleCertificationImageUpload = async (
@@ -523,6 +603,66 @@ export default function AdminPage() {
                   <Field label="Images root path"><input value={projectForm.images_path} onChange={(event) => setProjectForm((prev) => ({ ...prev, images_path: event.target.value }))} className={inputClassName} /></Field>
                   <Field label="Web image count"><input type="number" value={projectForm.images_num_web} onChange={(event) => setProjectForm((prev) => ({ ...prev, images_num_web: Number(event.target.value) }))} className={inputClassName} /></Field>
                   <Field label="Mobile image count"><input type="number" value={projectForm.images_num_mobile ?? 0} onChange={(event) => setProjectForm((prev) => ({ ...prev, images_num_mobile: Number(event.target.value) }))} className={inputClassName} /></Field>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  <Field label="Upload web screenshots">
+                    <div className="space-y-4">
+                      <label className="flex cursor-pointer items-center justify-center gap-2 rounded-2xl border border-dashed border-sky-300 bg-sky-50/70 px-4 py-6 text-sm font-medium text-sky-700 transition hover:bg-sky-100 dark:border-sky-400/25 dark:bg-sky-500/10 dark:text-sky-300 dark:hover:bg-sky-500/15">
+                        <FontAwesomeIcon icon={faImage} />
+                        <span>{projectUploadState.web ? "Uploading..." : "Select web images"}</span>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          multiple
+                          className="hidden"
+                          onChange={(event) => handleProjectImageUpload("web", event)}
+                          disabled={projectUploadState.web}
+                        />
+                      </label>
+                      {getProjectImagePaths(projectForm, "web").length > 0 ? (
+                        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                          {getProjectImagePaths(projectForm, "web").map((imagePath) => (
+                            <img
+                              key={imagePath}
+                              src={imagePath}
+                              alt={`${projectForm.name || "Project"} web preview`}
+                              className="h-24 w-full rounded-2xl border border-slate-200 object-cover dark:border-white/10"
+                            />
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  </Field>
+
+                  <Field label="Upload mobile screenshots">
+                    <div className="space-y-4">
+                      <label className="flex cursor-pointer items-center justify-center gap-2 rounded-2xl border border-dashed border-sky-300 bg-sky-50/70 px-4 py-6 text-sm font-medium text-sky-700 transition hover:bg-sky-100 dark:border-sky-400/25 dark:bg-sky-500/10 dark:text-sky-300 dark:hover:bg-sky-500/15">
+                        <FontAwesomeIcon icon={faImage} />
+                        <span>{projectUploadState.mobile ? "Uploading..." : "Select mobile images"}</span>
+                        <input
+                          type="file"
+                          accept="image/*"
+                          multiple
+                          className="hidden"
+                          onChange={(event) => handleProjectImageUpload("mobile", event)}
+                          disabled={projectUploadState.mobile}
+                        />
+                      </label>
+                      {getProjectImagePaths(projectForm, "mobile").length > 0 ? (
+                        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                          {getProjectImagePaths(projectForm, "mobile").map((imagePath) => (
+                            <img
+                              key={imagePath}
+                              src={imagePath}
+                              alt={`${projectForm.name || "Project"} mobile preview`}
+                              className="h-24 w-full rounded-2xl border border-slate-200 object-cover dark:border-white/10"
+                            />
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  </Field>
                 </div>
 
                 <label className="flex items-center gap-3 text-sm font-medium text-slate-700 dark:text-slate-200">

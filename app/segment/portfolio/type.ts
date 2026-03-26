@@ -13,6 +13,8 @@ export interface ProjectType {
   images_path: string;
   images_num_web: number;
   images_num_mobile?: number;
+  web_images?: string[];
+  mobile_images?: string[];
   demo_accounts?: { role: string; username: string; password: string }[];
   higlights: string[];
   isWebFirst: boolean;

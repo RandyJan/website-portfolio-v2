@@ -15,23 +15,7 @@ import { GlobalStore } from "@/app/GlobalStore";
 import { PortfolioStore } from "@/app/segment/portfolio/store";
 import { ProjectType } from "@/app/segment/portfolio/type";
 import { useProjectsContent } from "@/lib/content-store";
-
-function getProjectPreview(project: ProjectType) {
-  const previewType =
-    project.isWebFirst && project.images_num_web > 0
-      ? "web"
-      : project.images_num_mobile && project.images_num_mobile > 0
-        ? "mobile"
-        : project.images_num_web > 0
-          ? "web"
-          : null;
-
-  if (!previewType) {
-    return null;
-  }
-
-  return `${project.images_path}/${previewType}/1.png`;
-}
+import { getProjectPreviewImage } from "@/lib/project-images";
 
 function getBriefDescription(project: ProjectType) {
   if (project.long_description.length <= 135) {
@@ -61,7 +45,7 @@ export default function Carousel() {
       data-aos-duration="600"
     >
       {projects.map((project, index) => {
-        const previewImage = getProjectPreview(project);
+        const previewImage = getProjectPreviewImage(project);
 
         return (
           <Card

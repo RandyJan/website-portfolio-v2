@@ -12,6 +12,7 @@ import { Keyboard, Navigation, Pagination } from "swiper/modules"
 import { DynamicSystemLogo } from "@/app/segment/portfolio/component/DynamicSystemLogo"
 import { ProjectType } from "@/app/segment/portfolio/type"
 import { useProjectsContent } from "@/lib/content-store"
+import { getProjectImagePaths, hasProjectImages } from "@/lib/project-images"
 
 export default function Index() {
   const {
@@ -26,55 +27,35 @@ export default function Index() {
   const [systemLogo] = useState(DynamicSystemLogo("#000000"))
   const [previewImage, setPreviewImage] = useState<string | null>(null)
   const { data: projects } = useProjectsContent()
-  const getImageDimensions = async (blob: any) => {
+  const getImageDimensions = async (imageUrl: string) => {
     return new Promise((resolve, reject) => {
       const img = new Image()
       img.onload = () => {
         resolve({ width: img.width, height: img.height })
       }
       img.onerror = reject
-      img.src = URL.createObjectURL(blob)
+      img.src = imageUrl
     })
   }
 
   const fetchImages = async (SelectedProject: ProjectType) => {
     try {
-      set_is_loading(true) // Set loading state to true before starting the fetch operation
+      set_is_loading(true)
       if (SelectedProject.name !== "") {
-        const imagesPathWeb = `${SelectedProject.images_path}/web`
-        const imagesPathMobile = `${SelectedProject.images_path}/mobile`
-
-        const imagePromisesWeb = []
-        for (let index = 0; index < SelectedProject.images_num_web; index++) {
-          imagePromisesWeb.push(
-            fetchImage(`${imagesPathWeb}/${index + 1}.png`, "web", index + 1)
-          )
-        }
-
-        const imagePromisesMobile = []
-        for (
-          let index = 0;
-          index < SelectedProject.images_num_mobile!;
-          index++
-        ) {
-          imagePromisesMobile.push(
-            fetchImage(
-              `${imagesPathMobile}/${index + 1}.png`,
-              "mobile",
-              index + 1
-            )
-          )
-        }
+        const imagePathsWeb = getProjectImagePaths(SelectedProject, "web")
+        const imagePathsMobile = getProjectImagePaths(SelectedProject, "mobile")
 
         try {
-          const imagesWebWithDimensions = await Promise.all(imagePromisesWeb)
+          const imagesWebWithDimensions = await Promise.all(
+            imagePathsWeb.map((imagePath) => fetchImage(imagePath, "web"))
+          )
           const imagesMobileWithDimensions = await Promise.all(
-            imagePromisesMobile
+            imagePathsMobile.map((imagePath) => fetchImage(imagePath, "mobile"))
           )
 
           const imagesWebObjects = imagesWebWithDimensions.map(
-            ({ blob, dimensions }, index) => ({
-              src: blob,
+            ({ src, dimensions }, index) => ({
+              src,
               platform: "img_slide_web",
               folder: "web",
               width: (dimensions as any).width,
@@ -84,8 +65,8 @@ export default function Index() {
           )
 
           const imagesMobileObjects = imagesMobileWithDimensions.map(
-            ({ blob, dimensions }, index) => ({
-              src: blob,
+            ({ src, dimensions }, index) => ({
+              src,
               platform: "img_slide_mobile",
               folder: "mobile",
               width: (dimensions as any).width,
@@ -101,7 +82,7 @@ export default function Index() {
             combinedImages = [...imagesMobileObjects, ...imagesWebObjects]
           }
           set_selected_project(projects[selected_project_index])
-          set_selected_images(combinedImages) // Update selected images
+          set_selected_images(combinedImages)
         } catch (error) {
           console.error(error)
         }
@@ -109,22 +90,17 @@ export default function Index() {
     } catch (error) {
       console.error("Error fetching images:", error)
     } finally {
-      set_is_loading(false) // Ensure loading state is set to false after the fetch operation completes (success or failure)
+      set_is_loading(false)
     }
   }
 
-  const fetchImage = async (imageUrl: any, platform: any, index: any) => {
+  const fetchImage = async (imageUrl: string, platform: string) => {
     try {
-      const response = await fetch(imageUrl)
-      if (!response.ok) {
-        throw new Error(`Failed to fetch ${platform} image ${index}`)
-      }
-      const blob = await response.blob()
-      const dimensions = await getImageDimensions(blob)
-      return { blob, dimensions }
+      const dimensions = await getImageDimensions(imageUrl)
+      return { src: imageUrl, dimensions }
     } catch (error) {
       console.error(error)
-      return { blob: null, dimensions: null } // In case of failure, return null values
+      return { src: imageUrl, dimensions: null }
     }
   }
 
@@ -155,17 +131,8 @@ export default function Index() {
             centeredSlides={true}
             modules={[Keyboard, Navigation, Pagination]}
             navigation
-            // onSlideChange={(data) => { }}
-            // onClick={(data) => {
-            //     dispatch(setActiveIndex(data.activeIndex))
-            //     dispatch(setIsFullScreen(true))
-            // }}
           >
-            {selected_project &&
-            ((selected_project.images_num_web &&
-              selected_project.images_num_web > 0) ||
-              (selected_project.images_num_mobile &&
-                selected_project.images_num_mobile > 0)) ? (
+            {selected_project && hasProjectImages(selected_project) ? (
               <>
                 {selected_images.length > 0 &&
                   selected_images.map((item: any, index: number) => (
@@ -173,24 +140,16 @@ export default function Index() {
                       {item.platform === "img_slide_web" ? (
                         <img
                           className="img_slide_web max-w-full max-h-[70vh] object-contain mx-auto cursor-pointer"
-                          src={`${selected_project.images_path}/${item.folder}/${item.index}.png`}
+                          src={item.src}
                           alt="app"
-                          onClick={() =>
-                            setPreviewImage(
-                              `${selected_project.images_path}/${item.folder}/${item.index}.png`
-                            )
-                          }
+                          onClick={() => setPreviewImage(item.src)}
                         />
                       ) : (
                         <img
                           className="img_slide_mobile max-w-full max-h-[70vh] object-contain mx-auto cursor-pointer"
-                          src={`${selected_project.images_path}/${item.folder}/${item.index}.png`}
+                          src={item.src}
                           alt="app"
-                          onClick={() =>
-                            setPreviewImage(
-                              `${selected_project.images_path}/${item.folder}/${item.index}.png`
-                            )
-                          }
+                          onClick={() => setPreviewImage(item.src)}
                         />
                       )}
                     </SwiperSlide>
