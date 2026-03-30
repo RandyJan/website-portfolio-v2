@@ -141,7 +141,7 @@ export default function Hero() {
                 <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-r from-sky-500/35 to-orange-400/20 blur-2xl" />
                 <div className="relative overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/5 p-3">
                   <Image
-                    src="/images/profile/mypix.png"
+                    src="/images/profile/mypix2.jpeg"
                     alt="Randy Jan Rongcales portrait"
                     width={720}
                     height={900}
