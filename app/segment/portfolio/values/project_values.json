@@ -1,5 +1,73 @@
 [
     {
+        "name": "E-procurement System",
+        "project_logo": "images/system.png",
+        "description": "Laravel + ReactJS + Tailwind",
+        "long_description": "The system helps organizations improve operational efficiency by reducing manual paperwork, minimizing processing time, enhancing transparency, and ensuring compliance with procurement policies and workflows. It also provides real-time monitoring of procurement activities, approval tracking, document management, and reporting features to support better decision-making and accountability. By digitizing procurement operations, the E-Procurement System promotes faster transaction processing, accurate record keeping, improved supplier coordination, and optimized resource management across departments.",
+        "technology": ["Laravel", "ReactJS", "Tailwind","ShadCN UI"],
+        "platform": ["Web"],
+        "status": ["Active"],
+        "type": "Full time project",
+        "role": ["Full Stack Developer"],
+        "source_code": [],
+        "images_path": "/images/eprocurement",
+        "images_num_web": 9,
+        "higlights": [
+            "Streamlined procurement workflows through automated purchase request and approval processes.",
+            "Centralized supplier management for efficient vendor information tracking and maintenance.",
+            "Reduced manual paperwork and processing delays through digital procurement transactions.",
+            "Improved transparency and accountability with real-time procurement monitoring and status tracking.",
+            "Enhanced compliance with standardized procurement policies and approval hierarchies."
+        ],
+        "isWebFirst": true
+    },
+    {
+        "name": "Queueing System",
+        "project_logo": "images/system.png",
+        "description": "Laravel + ReactJS + Tailwind",
+        "long_description": "A Queueing System is a digital solution designed to manage and organize client or customer flow efficiently within an organization or service area. It automates the process of queue generation, service assignment, client monitoring, and transaction tracking to reduce waiting time and improve overall service delivery.",
+        "technology": ["Laravel", "ReactJS", "Tailwind","ShadCN UI"],
+        "platform": ["Web"],
+        "status": ["Active"],
+        "type": "Full time project",
+        "role": ["Full Stack Developer"],
+        "source_code": [],
+        "images_path": "/images/queueing",
+        "images_num_web": 7,
+        "higlights": [
+            "Automated queue number generation and client registration process.",
+            "Reduced waiting time through organized and real-time queue management.",
+            "Enabled real-time monitoring and calling of clients by service personnel.",
+            "Improved customer experience through a structured and transparent queueing process.",
+            "Centralized transaction tracking and client information management.",
+            "Enhanced operational efficiency by minimizing manual queue handling.",
+            "Supported multiple service categories and transaction workflows."
+        ],
+        "isWebFirst": true
+    },
+    {
+        "name": "IPPMIS",
+        "project_link": "",
+        "project_logo": "images/system.png",
+        "description": "Laravel + ReactJS + Typescript + ShadCN UI",
+        "long_description": "Integrated Personnel Payroll Management System designed to automate the employees payroll and provide robust solution to templates.",
+        "technology": ["Laravel", "ReactJS", "MySQL", "ReactJS", "Tailwind", "Laravel-Inertia", "Typescript","IIS"],
+        "platform": ["Web"],
+        "status": ["Completed"],
+        "type": "Full time project",
+        "role": ["Web Developer"],
+        "source_code": [],
+        "images_path": "/images/ippmis",
+        "images_num_web": 7,
+        "higlights": [
+            "Built and deployed the project from the ground up",
+            "Developed Scalable Codebase and Modular Architecture",
+            "Collaborated with the senior developer to ensure code quality and solutions aligned with development standards",
+            "Deployed the application on IIS, utilizing an in-house server to make it publicly accessible"
+        ],
+        "isWebFirst": true
+    },
+    {
         "name": "Website Portfolio V1",
         "project_link": "https://my-website-portfolio-pied.vercel.app/",
         "project_logo": "images/system.png",
@@ -65,28 +133,7 @@
         ],
         "isWebFirst": true
     },
-    {
-        "name": "IPPMIS",
-        "project_link": "",
-        "project_logo": "images/system.png",
-        "description": "Laravel + ReactJS + Typescript + ShadCN UI",
-        "long_description": "Integrated Personnel Payroll Management System designed to automate the employees payroll and provide robust solution to templates.",
-        "technology": ["Laravel", "ReactJS", "MySQL", "ReactJS", "Tailwind", "Laravel-Inertia", "Typescript","IIS"],
-        "platform": ["Web"],
-        "status": ["Completed"],
-        "type": "Full time project",
-        "role": ["Web Developer"],
-        "source_code": [],
-        "images_path": "/images/ippmis",
-        "images_num_web": 2,
-        "higlights": [
-            "Built and deployed the project from the ground up",
-            "Developed Scalable Codebase and Modular Architecture",
-            "Collaborated with the senior developer to ensure code quality and solutions aligned with development standards",
-            "Deployed the application on IIS, utilizing an in-house server to make it publicly accessible"
-        ],
-        "isWebFirst": true
-    },
+    
      {
         "name": "Anti Scam App",
         "project_link": "",
@@ -135,4 +182,5 @@
         ],
         "isWebFirst": true
     }
+      
 ]
