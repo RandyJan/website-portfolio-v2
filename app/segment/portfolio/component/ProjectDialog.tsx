@@ -26,9 +26,9 @@ export default function ProjectDialog() {
 
     const header = () => {
         return (
-            <div className="bg-black w-full  sm:h-[5%] text-white flex flex-col justify-center p-2 sm:p-2 items-start ">
-                <div className="flex justify-between  w-full p-2">
-                    <div className="cursor-pointer" onClick={() => { set_project_dialog(false) }}>
+            <div className="w-full shrink-0 bg-black p-2 text-white">
+                <div className="flex w-full items-center justify-between gap-3 p-2">
+                    <div className="shrink-0 cursor-pointer" onClick={() => { set_project_dialog(false) }}>
                         <FontAwesomeIcon icon={faClose} size="xl" />
                         {/* Close */}
                     </div>
@@ -40,19 +40,21 @@ export default function ProjectDialog() {
 
     const guide = () => {
         return (
-            <div className="flex gap-2">
+            <div className="min-w-0">
                 <LoadingWrapper>
-                    <FontAwesomeIcon icon={faArrowLeft} className="cursor-pointer" size="xl" onClick={() => {
-                        if (selected_project_index > 0 && projects[selected_project_index - 1].name !== '') {
-                            set_selected_project_index(selected_project_index - 1)
-                        }
-                    }} />
-                    <div className="w-36 text-center">{selected_project.name}</div>
-                    <FontAwesomeIcon icon={faArrowRight} className="cursor-pointer" size="xl" onClick={() => {
-                        if (selected_project_index < projects.length - 1 && projects[selected_project_index + 1].name !== '') {
-                            set_selected_project_index(selected_project_index + 1)
-                        }
-                    }} />
+                    <div className="flex min-w-0 items-center gap-3">
+                        <FontAwesomeIcon icon={faArrowLeft} className="shrink-0 cursor-pointer" size="xl" onClick={() => {
+                            if (selected_project_index > 0 && projects[selected_project_index - 1].name !== '') {
+                                set_selected_project_index(selected_project_index - 1)
+                            }
+                        }} />
+                        <div className="max-w-[52vw] truncate text-center text-sm font-medium sm:max-w-64 sm:text-base">{selected_project.name}</div>
+                        <FontAwesomeIcon icon={faArrowRight} className="shrink-0 cursor-pointer" size="xl" onClick={() => {
+                            if (selected_project_index < projects.length - 1 && projects[selected_project_index + 1].name !== '') {
+                                set_selected_project_index(selected_project_index + 1)
+                            }
+                        }} />
+                    </div>
                 </LoadingWrapper>
             </div>
         )
@@ -71,15 +73,15 @@ export default function ProjectDialog() {
                     </LoadingWrapper>
                 </div>
 
-                <div className='flex flex-row gap-1 items-center text-sm'>
-                    <div>Project Type:&nbsp;</div>
+                <div className='flex flex-row flex-wrap gap-1 items-center text-sm'>
+                    <div className="shrink-0">Project Type:&nbsp;</div>
                     <LoadingWrapper>
                         <Badge>{selected_project.type}</Badge>
                     </LoadingWrapper>
                 </div>
 
-                <div className='flex flex-row gap-1 items-center text-sm'>
-                    <div>Platform:&nbsp;</div>
+                <div className='flex flex-row flex-wrap gap-1 items-center text-sm'>
+                    <div className="shrink-0">Platform:&nbsp;</div>
                     <LoadingWrapper>
                         {selected_project && selected_project.platform && selected_project.platform.map((item: string, index: number) => (
                             <Badge key={index} >{item}</Badge>
@@ -97,8 +99,8 @@ export default function ProjectDialog() {
                 </div>
 
 
-                <div className='flex flex-row gap-1 items-center text-sm'>
-                    <div>Role:&nbsp;</div>
+                <div className='flex flex-row flex-wrap gap-1 items-center text-sm'>
+                    <div className="shrink-0">Role:&nbsp;</div>
                     <LoadingWrapper>
                         {selected_project && selected_project.role && selected_project.role.map((item: string, index: number) => (
                             <Badge key={index}>{item}</Badge>
@@ -109,7 +111,7 @@ export default function ProjectDialog() {
 
                 <div className='flex flex-col text-sm'>
                     <LoadingWrapper>
-                        <div className='pr-6'>{selected_project.long_description}</div>
+                        <div className='leading-7'>{selected_project.long_description}</div>
                     </LoadingWrapper>
                 </div>
 
@@ -117,7 +119,7 @@ export default function ProjectDialog() {
                 <LoadingWrapper>
                     {selected_project && selected_project.higlights && (
                         <>
-                            <div className='flex flex-col flex-wrap gap-1  text-sm'>
+                            <div className='flex flex-col gap-2 text-sm leading-6'>
                                 {selected_project.higlights.map((item: string, index: number) => (
                                     <p key={index}>• {item}.</p>
                                 ))}
@@ -150,19 +152,19 @@ export default function ProjectDialog() {
                 </LoadingWrapper>
 
                 <div className='grow'></div>
-                <div className='flex flex-row justify-between dark:text-white  items-center h-16  '>
+                <div className='flex min-h-16 flex-row items-center justify-between gap-4 pt-4 dark:text-white'>
                     <LoadingWrapper>
-                        <p className='lg:ml-2'>{(1 + selected_project_index)}/{projects.length}</p>
-                        <div className='flex flex-row gap-4 pr-3'>
+                        <p className='shrink-0 lg:ml-2'>{(1 + selected_project_index)}/{projects.length}</p>
+                        <div className='flex flex-row flex-wrap justify-end gap-4'>
                             {selected_project.source_code && selected_project.source_code.length > 0 && (
-                                <div className='flex flex-col enlarge_litle' onClick={() => { set_multiple_links(selected_project.source_code); set_multiple_link_dialog(true); }} >
-                                    <FontAwesomeIcon icon={faGithub} className=" grow " size="xl" />
+                                <div className='flex flex-col items-center gap-1 enlarge_litle' onClick={() => { set_multiple_links(selected_project.source_code); set_multiple_link_dialog(true); }} >
+                                    <FontAwesomeIcon icon={faGithub} size="xl" />
                                     <p className='text-blue-500'>Source Code</p>
                                 </div>
 
                             )}
                             {selected_project && selected_project.project_link && (
-                                <a href={selected_project.project_link} target="_blank" rel="noopener noreferrer" className=" grow enlarge_litle flex flex-col">
+                                <a href={selected_project.project_link} target="_blank" rel="noopener noreferrer" className="enlarge_litle flex flex-col items-center gap-1">
                                     <FontAwesomeIcon icon={faLink} size="xl" />
                                     <p className='text-blue-500'>Visit</p>
                                 </a>
@@ -177,18 +179,18 @@ export default function ProjectDialog() {
 
     return (
         <Dialog open={project_dialog} onOpenChange={set_project_dialog}>
-            <DialogContent hideCloseButton={true} fullscreen={true} className={cn("overflow-y-auto sm:overflow-y-hidden min-w-full max-h-[calc(100dvh)] min-h-[calc(100dvh)]  sm:h-screen w-screen bg-gray-100 sm:rounded-md flex flex-col dark:bg-[#18191a]", { 'h-screen': is_loading })}>
+            <DialogContent hideCloseButton={true} fullscreen={true} className={cn("flex h-[100dvh] max-h-[100dvh] min-h-0 w-screen min-w-full flex-col overflow-hidden bg-gray-100 dark:bg-[#18191a] sm:rounded-md", { 'h-[100dvh]': is_loading })}>
                 <DialogTitle></DialogTitle>
                 <DialogDescription></DialogDescription>
                 {header()}
 
-                <div className={cn('flex flex-col sm:flex-row w-full sm:h-full p-2', { 'h-full': is_loading })}>
+                <div className={cn('flex min-h-0 w-full flex-1 flex-col gap-2 overflow-y-auto p-2 sm:flex-row sm:overflow-hidden', { 'h-full': is_loading })}>
 
-                    <div className={cn("bg-gray-200 min-h-[27%] w-full  sm:w-[65%] sm:h-full flex flex-col justify-center sm:pb-36 dark:bg-[#242526] sm:rounded-2xl")}>
+                    <div className={cn("flex min-h-[16rem] w-full shrink-0 flex-col justify-center rounded-2xl bg-gray-200 dark:bg-[#242526] sm:min-h-0 sm:w-[65%] sm:flex-1")}>
                         <NestedCarousel />
                     </div>
 
-                    <div className={cn("bg-white w-full min-h-full sm:w-[35%] sm:overflow-y-auto   sm:h-full p-4 flex flex-col gap-2  dark:text-white dark:bg-[#31363F] sm:rounded-2xl  sm:over")}>
+                    <div className={cn("flex w-full min-h-0 flex-col gap-3 rounded-2xl bg-white p-4 dark:bg-[#31363F] dark:text-white sm:h-full sm:w-[35%] sm:overflow-y-auto")}>
                         {projectDescription()}
                     </div>
 

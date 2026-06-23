@@ -117,7 +117,7 @@ export default function Index() {
           <HashLoader color="black" loading={true} size={50} />
         </div>
       ) : (
-        <div>
+        <div className="flex min-h-0 w-full flex-1 items-center">
           <Swiper
             // onSwiper={setSwiper}
             className="w-full"
@@ -136,17 +136,17 @@ export default function Index() {
               <>
                 {selected_images.length > 0 &&
                   selected_images.map((item: any, index: number) => (
-                    <SwiperSlide key={`web${index}`}>
+                    <SwiperSlide key={`web${index}`} className="flex items-center justify-center">
                       {item.platform === "img_slide_web" ? (
                         <img
-                          className="img_slide_web max-w-full max-h-[70vh] object-contain mx-auto cursor-pointer"
+                          className="img_slide_web mx-auto max-h-[55dvh] max-w-full cursor-pointer object-contain sm:max-h-[calc(100dvh-8rem)]"
                           src={item.src}
                           alt="app"
                           onClick={() => setPreviewImage(item.src)}
                         />
                       ) : (
                         <img
-                          className="img_slide_mobile max-w-full max-h-[70vh] object-contain mx-auto cursor-pointer"
+                          className="img_slide_mobile mx-auto max-h-[55dvh] max-w-full cursor-pointer object-contain sm:max-h-[calc(100dvh-8rem)]"
                           src={item.src}
                           alt="app"
                           onClick={() => setPreviewImage(item.src)}

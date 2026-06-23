@@ -137,7 +137,8 @@ html {
 
 .img_slide_web {
   margin: auto;
-  width: 90%;
+  width: auto;
+  max-width: 100%;
 }
 
 .swiper-pagination-bullet-active {
@@ -160,33 +161,37 @@ html {
 /* mobile */
 @media (max-width: 1023px) {
   .img_slide_mobile, .img_slide_web{
-    height: 10rem;
+    max-height: 16rem;
+    height: auto;
     width: auto;
     margin: auto;
-    object-fit: cover;
+    object-fit: contain;
   }
   .imgSlide2 {
-    height: 10rem;
+    max-height: 16rem;
+    height: auto;
     width: auto;
     margin: auto;
-    object-fit: cover;
+    object-fit: contain;
   }
 }
 
 /* higer width than mobile */
 @media (min-width: 1024px) {
   .img_slide_mobile, .img_slide_web{
-    height: 35rem;
+    max-height: calc(100dvh - 8rem);
+    height: auto;
     width: auto;
     margin: auto;
-    object-fit: cover;
+    object-fit: contain;
   }
 
   .imgSlide2 {
-    height: 35rem;
+    max-height: calc(100dvh - 8rem);
+    height: auto;
     width: auto;
     margin: auto;
-    object-fit: cover;
+    object-fit: contain;
   }
  
   .dynamic_description{
