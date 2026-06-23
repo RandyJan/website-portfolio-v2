@@ -1,5 +1,27 @@
 [
     {
+    "name": "Inventory Management System",
+    "project_logo": "images/logo.png",
+    "description": "Laravel + ReactJS + Tailwind",
+    "long_description": "The system helps organizations efficiently manage inventory levels, stock movements, and warehouse operations through a centralized digital platform. It streamlines inventory tracking by automating stock-in and stock-out transactions, monitoring real-time stock availability, managing product catalogs, and generating accurate inventory reports. The system improves operational efficiency by reducing manual inventory errors, preventing stock shortages and overstocking, enhancing inventory visibility, and supporting informed decision-making through comprehensive analytics and reporting. By digitizing inventory processes, the Inventory Management System ensures accurate record keeping, optimized stock control, and improved resource utilization across departments and storage locations.",
+    "technology": ["Laravel", "ReactJS", "Tailwind", "ShadCN UI"],
+    "platform": ["Web"],
+    "status": ["Active"],
+    "type": [ "Open for business"],
+    "role": ["Full Stack Developer"],
+    "source_code": [],
+    "images_path": "/images/inventory",
+    "images_num_web": 7,
+    "higlights": [
+        "Automated inventory tracking with real-time stock monitoring and updates.",
+        "Centralized product and warehouse management for efficient inventory control.",
+        "Reduced inventory discrepancies through accurate stock-in, stock-out, and adjustment processes.",
+        "Improved inventory visibility with comprehensive dashboards, reports, and analytics.",
+        "Enhanced stock management by preventing shortages, overstocking, and manual tracking errors."
+    ],
+    "isWebFirst": true
+},
+    {
         "name": "E-procurement System",
         "project_logo": "images/system.png",
         "description": "Laravel + ReactJS + Tailwind",
